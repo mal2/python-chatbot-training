@@ -1,0 +1,132 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "Hey", "Hallo", "Guten Tag", "Wie geht es"],
+         "responses": ["Hallo, danke für das Interesse. 👋", "Gut dich zu sehen. 😻", "Hallo, wie kann ich helfen?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "Tschüss", "Auf Wiedersehen"],
+         "responses": ["Bis zum nächsten mal. 😊", "Habe einen schönen Tag. 👋", "Tschüss, danke das du hier warst. 👍"]
+        },
+        {"tag": "thanks",
+         "patterns": ["Danke", "Danke dir", "Das hat weiter geholfen"],
+         "responses": ["Ich bin froh dir helfen zu können.", "Jederzeit gern.", "War mir ein innerliches Blumenpflücken :)"]
+        },
+        {"tag": "not_helpful",
+         "patterns": ["Das ist falsch", "Das hat nicht weiter geholfen", "Nein, das hilft nicht"],
+         "responses": ["Wende dich bitte an einen Mitarbeiter unter auskunft@campusbib.fu-berlin.de"],
+         "action": ["email chat"]
+        },
+        {"tag": "hours",
+         "patterns": ["Was sind die Öffnungszeiten?", "Wie habt ihr offen?", "Wann habt ihr geöffnet?" ],
+         "responses": ["Wir haben Mo-Fr von 10Uhr bis 20Uhr geöffnet", "Von Mo-Fr 10-20Uhr"]
+        },
+        {"tag": "books",
+         "patterns": ["Welche Bücher habt ihr", "Welche Sammelbereiche gibt es?", "Welche Medien kann ich hier finden?" ],
+         "responses": ["Unsere Sammelgebiete sind Erziehungswissenschaft, Fachdidaktik und Psychologie, Frauen- und Geschlechterforschung, Japanologie, Sinologie, Koreastudien, Religionswissenschaft, Evangelische Theologie mit Religionsgeschichte, Judaistik, Katholische Theologie, Vergleichende Ethik, Islamwissenschaft, Semitistik und Arabistik, Iranistik, Turkologie, Prähistorische Archäologie, Klassische Archäologie, Ägyptologie, Vorderasiatische Archäologie, Altorientalistik, Pharmazie, Chemie und Biochemie, Biologie, Physik, Mathematik/Informatik"]
+        },
+        {"tag": "payments",
+         "patterns": ["Wo kann ich Gebühren bezahlen?", "Kann ich Bar zahlen?", "Wie zahle ich Mahngebühren?" ],
+         "responses": ["Eine Überweisung von in allen FU-Bibliotheken entstandenen Mahn- und Fernleihgebühren ist auf folgendes Konto möglich, die Buchung kann jedoch mehrere Tage in Anspruch nehmen:\n\n Deutsche Bank PGK AG\n IBAN: DE67 1007 0848 051 3128 900\n Swift Code (BIC): DEUTDEDB110\n Verwendungszweck: 011/58 + Matrikel- oder Benutzungsausweisnummer (unbedingt erforderlich!)\n\n oder an den Kassenautomaten\n Mensa FU II (Eingang Otto-von-Simson-Straße 26)\n Studierendenverwaltung (Iltisstraße 1)\n Universitätsbibliothek (Garystr. 39) "]
+        },
+        {"tag": "opentoday",
+         "patterns": ["Ist heute offen?", "Wie sind die Öffnungszeiten heute?"],
+         "responses": ["Wir haben Mo-Fr von 10Uhr bis 20Uhr geöffnet", "Von Mo-Fr 10-20Uhr"]
+        },
+        {"tag": "book",
+         "patterns": ["Kann ich ein Buch ausleihen?", "Ich möchte ein Buch ausleihen", "Wie finde ich ein Buch?", "Wie finde ich Bücher?", "Wie finde ich Medien?", "Wie suche ich nach einem Buch?"],
+         "responses": ["Musst du noch nach dem Buch suchen oder möchtest du es ausleihen?"],
+         "context_set": "booksearch"
+        },
+        {"tag": "search",
+         "patterns": ["suchen"],
+         "responses": ["Um nach Büchern zu suchen benutze bitte unseren Katalog unter <a href='http://primo.fu-berlin.de'>http://primo.fu-berlin.de</a>"],
+         "context_filter": "booksearch"
+        },
+        {"tag": "borrow",
+         "patterns": ["ausleihen","leihen"],
+         "responses": ["Um ein Buch zu entleihen kannst die die Selbstverbucher im Neubau Ebene -1 bei der Lehrbuchsammlung, Neubau Ebene 0 und Ebene 1 an den Übergängen zur Holzlaube, die Selbstverbucher im Engangsbereich zwischen Auskunft und Erstinformation oder bei unseren Mitarbeitern an Erstinformation und Ausleihe"],
+         "context_filter": "booksearch",
+         "action": "[weg anzeigen]"
+        },
+        {"tag": "location",
+         "patterns": ["Wo befindet sich die Bibliothek?", "Wie finden ich die Bibliothek?", "Was ist der Standort?", "Was ist der Standort der Bibliothek?"],
+         "responses":  ["Du findest die Bibliothek in der Fabeckstr. 23/25 in 14195 Berlin. Ser Eingang zur Bibliothek befindet sich an der L-Straße in der Silberlaube."]
+        },
+        {"tag": "help",
+         "patterns": ["Wer kann mir weiterhelfen?","Wer kann mir Helfen?", "Wie kann ich Kontakt aufnehmen?", "Wie kann ich euch erreichen?", "Wie kann ich dich erreichen"],
+         "responses": ["Du kann uns eine Email unter 📧 auskunft@campusbib.fu-berlin.de schreiben oder unter 📞 +49 30 838 563 84 anrufen."]
+        },
+        {"tag": "familyroom",
+         "patterns": ["Kann ich die Bibliothek mit meinem Kind besuchen?","Ich habe ein Kind.", "Kann ich mein Kind mitnehmen"],
+         "responses": ["Wir haben einen Eltern-Kind-Raum der über die <a href='https://raumbuchung.ub.fu-berlin.de/studydesk_cb/index.php'>Raumbuchung</a> reserviert werden kann."]
+        },
+        {"tag": "grouproom",
+         "patterns": ["Kann ich in Gruppen arbeiten?","Kann ich mich unterhalten?", "Kann ich reden.", "Kann ich mit freunden lernen.", "Können wir in Gruppen lernen", "Können wir zusammen lernen?"],
+         "responses": ["Die Gruppenräume 1 – 3 im Neubau Untergeschoss sowie der Gruppenraum 11 im Altbau Ebene 4 stehen wieder für das gemeinsame Arbeiten und Studieren für bis zu 6 Personen zur Verfügung. Die Gruppenräume können online reserviert werden. Außerdem stehen der Multifunktionsraum sowie weitere Arbeitsplätze im Neubau im 2.Obergeschoss für Einzel- und Gruppenarbeit zur Verfügung und müssen nicht reserviert werden. Die Gruppenarbeitsräume kannst du unter https://raumbuchung.ub.fu-berlin.de/studydesk_cb/index.php reservieren"]
+        },
+        {"tag": "coffelecture",
+         "patterns": ["Kann ich Kaffe haben?","Wo bekomme ich Kaffee?", "Habt ihr Lernangebote?", "Wo gibt es Kaffee?"],
+         "responses": ["Die nächste Coffe-Lecture findet am 28.09.2022 statt. Mehr Infos gibt es unter <a href='https://www.fu-berlin.de/sites/campusbib/_media/Lernangebote-und-Fuehrungen-Coffee-Lecture.html>Coffe Lecture</a>"],
+         "action" : "[crawl date]"
+        },
+        {"tag": "due",
+         "patterns": ["Wie lange kann ich ein Buch ausleihen?", "Was sind die Fristen?", "Wie viele Bücher kann ich ausleihen?"],
+         "responses": ["Eine Übersicht zu den Exemplarrichtlinien findest du <a href='https://www.fu-berlin.de/sites/campusbib/_media/Exemplarrichtlinie.pdf'>hier</a>"]
+        },
+        {"tag": "account",
+         "patterns": ["Wo sehe ich welche Bücher ich geliehen haben?", "Wie viele Bücher habe ich ausgeliehen?", "Welche Bücher habe ich?", "Kann ich mein Buch verlängern"],
+         "responses": ["Eine Übersicht zu deine Ausleihen findest du in deinem Primo-Konto unter https://fu-berlin.hosted.exlibrisgroup.com/primo-explore/account?vid=FUB&lang=de_DE&section=personal_details"]
+        },
+        {"tag": "digitalisation",
+         "patterns": ["Kann ich Bücher scannen?", "Können Zeitschriften digitalisiert werden?", "Wo kann ich Zeitschriften scannen?", "Kann ich in der Bibliothek scannen?"],
+         "responses": ["Weitere Informationen zu unserem Digitalisierungsservice findest du unter https://www.fu-berlin.de/sites/ub/service/digitalisierung/index.html"]
+        },
+        {"tag": "carrels",
+         "patterns": ["Gibt es auch Einzelarbeitsräume?", "Kann ich irgwedwo ungestört Arbeiten?", "Gibt es Carrels?"],
+         "responses": ["Die Einzelarbeitsräume stehen Doktoranden/innen, Examenskandidat/inn/en im Masterstudium und Gastwissenschaftler/innen der Fachbereiche der Campusbibliothek (Natur-, Kultur- und Bildungswissenschaften, Mathematik, Informatik und Psychologie) der Freien Universität Berlin zur Verfügung. Weitere Infos findest du unter https://www.fu-berlin.de/sites/campusbib/services/Einzelarbeitsraeume/index.html"]
+        },
+        {"tag": "lost_found",
+         "patterns": ["Ich habe etwas verloren?", "Wo bekomme ich verlorene Sachen zurück", "Gibt es eine Fundkiste?"],
+         "responses": ["Fundsachen kannst du an der Erstinformation abholen."]
+        },
+        {"tag": "renewal_validation",
+         "patterns": ["Wo finde ich den Validierungsautomaten?", "Wie kann ich meine Campuskarte validieren?", "Wo ist der Ausgabeautomat?", "Wo ist der Automat für die Campuscard?", "Wo kann ich meine Karte validieren?", "Wo kann ich meine Karte erneuern?"],
+         "responses": ["Ein Ausgabeautomat und ein Validierungsautomat befinden sich in der L-Straße zwischen dem Eingang der Campusbibliothek und dem Café Kauderwelsch."]
+        },
+        {"tag": "computer_search",
+         "patterns": ["Gibt es Computer?", "Wo kann ich recherchieren?", "Wie kann ich Bücher finden?"],
+         "responses": ["Terminals zur Rechereche fidest du im Eingangsbereich und auf den Ebenen im Alt- und Neubau. Im Altbau auf Ebene 2 befinden sich Widows-Rechner. 🖥️"]
+        },
+        {"tag": "return",
+         "patterns": ["Wo gebe ich Bücher zurück?", "Wo kann Bücher abgeben?", "Wie gebe ich die Bücher zurück?"],
+         "responses": ["Du kannst Medien aller FU Bibliotheken, ausser Charité und Fernleihen, in die Rückgabewagen im Eingagnsbereich legen. Sie werden dann von uns verbucht; oder du kannst die Bücher auch an der Erstinformation abgeben."]
+        },
+        {"tag": "locker",
+         "patterns": ["Kann ich meine Sachen einschließen?", "Wo kann Bücher abgeben?", "Wie gebe ich die Bücher zurück?"],
+         "responses": ["Schließfächer 🔒 befinden sich direkt hiter dem Eingang, sie können mit einem PIN verschlossen werden um persönliche Gegenstände während der Öffnungszeiten einzuschließen."]
+        },
+        {"tag": "bags_drinks",
+         "patterns": ["Kann meine Sachen mit rein nehmen?", "Kann ich etwas zu trinken mitnehmen?", "Kann ich meine Jacke mitnehmen?"],
+         "responses": ["Du kannst Jacke und Rucksack mit in die Bibliothek nehmen. Erlaubt ist Wasser in durchsichtigen Flaschen. Das Essen ist in der gesamten Bibliothek nicht gestattet."]
+        },
+        {"tag": "open_stacks",
+         "patterns": ["Wo finde ich das Freihandmagazin?", "Wie komme ich zum offenen Magazin?"],
+         "responses": ["Das Freihandmagazin befindet sich im Altbau Ebene 0 hinter der Brandschutztür. 🔥"]
+        },
+        {"tag": "how_much",
+         "patterns": ["Wie viele Bücher hat die Bibliothek?", "Wie viele Medien gibt es?"],
+         "responses": ["Wir besitzen über 1 Million Medien."]
+        },
+        {"tag": "no_further_questions",
+         "patterns": ["Keine Fragen.", "Ich habe keine Fragen", "Ich habe keine weiteren Fragen"],
+         "responses": ["Bis zum nächsten mal.", "Habe einen schönen Tag.", "Tschüss, danke das du hier warst."]
+        }
+        ,
+        {"tag": "pizza",
+         "patterns": ["Pizza", "Ich liebe Pizza", "Ich mag Pizza"],
+         "responses": ["Pizza ist lecker.", "V = πz²a", "yummy 😋"]
+        }
+   ]
+}
+
